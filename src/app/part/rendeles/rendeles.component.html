@@ -1,0 +1,17 @@
+<h1>Rendelés felvétele</h1>
+<div class="mb-3">
+    <label for="nev" class="form-label">Név</label>
+    <input [(ngModel)]="megrendeles.nev" type="text" class="form-control" id="nev">
+</div>
+<div class="mb-3">
+    <label for="cim" class="form-label">Cím</label>
+    <input [(ngModel)]="megrendeles.cim" type="text" class="form-control" id="cim">
+</div>
+<div *ngFor="let tetel of tetelek" class="row">
+    <div class="col">{{keresNev(tetel.novenyKey)}}</div>
+    <div class="col">{{tetel.db}}</div>
+    <div class="col">
+        <button (click)="torol(tetel)" type="button" class="btn btn-primary">Töröl</button>
+    </div>
+</div>
+<button (click)="ment()" type="button" class="btn btn-primary">Ment</button>

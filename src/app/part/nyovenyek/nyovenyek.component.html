@@ -1,0 +1,25 @@
+<!-- {{novenyek|json}} -->
+<div class="mb-3">
+    <label for="keresendo" class="form-label">Keresés: </label>
+    <input [(ngModel)]="keresendo" type="text" class="form-control" id="keresendo">
+</div>
+
+<div class="row g-4">
+<div *ngFor="let noveny of novenyek|filter:keresendo" class="col-12 col-sm-6 col-lg-4 col-xl-3">
+    <div class="card h-100">
+        <img [src]="noveny.kepUrl" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{noveny.megnevezes}}</h5>
+        <p class="card-text">{{noveny.leiras}}</p>
+        </div>
+        <div class="card-footer">
+            <p class="card-text">{{noveny.ar}} Ft</p>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Db</span>
+                <input #db type="number" class="form-control" value="1">
+                <button (click)="addTetel(noveny.key, db.value)" type="button" class="btn btn-primary">Megrendelés</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
